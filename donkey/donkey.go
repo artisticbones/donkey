@@ -8,6 +8,7 @@ import (
 type HandlerFunc func(w http.ResponseWriter, req *http.Request)
 
 // Engine implement the interface of ServeHTTP
+// todo: need to consider multi program' problem
 type Engine struct {
 	routers map[string]HandlerFunc // todo: finding why use map structure
 }
