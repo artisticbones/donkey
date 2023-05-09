@@ -2,7 +2,7 @@
 
 # 设置应用名称和版本号
 APP_NAME="donkey"
-APP_VERSION="1.0.0"
+APP_VERSION="1.0.1"
 
 # 根据当前机器架构选择 Dockerfile
 ARCH=$(uname -m)
@@ -17,6 +17,9 @@ fi
 
 # 构建 Docker 镜像
 docker build -t $APP_NAME:$APP_VERSION -f $DOCKERFILE .
+
+#停止并删除历史容器
+docker stop $APP_NAME && docker rm $APP_NAME
 
 # 运行 Docker 镜像
 docker run -d -p 8080:8080 --name $APP_NAME $APP_NAME:$APP_VERSION 
