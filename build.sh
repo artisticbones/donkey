@@ -2,7 +2,7 @@
 
 # 设置应用名称和版本号
 APP_NAME="donkey"
-APP_VERSION="1.0.1"
+APP_VERSION="1.0.2"
 
 # 根据当前机器架构选择 Dockerfile
 ARCH=$(uname -m)
