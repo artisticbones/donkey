@@ -50,11 +50,11 @@ func (c *Context) String(code int, format string, values ...interface{}) {
 
 func (c *Context) JSON(code int, obj interface{}) {
 	c.SetHeader("Content-Type", "application/json")
-	c.Status(code)
 	encoder := json.NewEncoder(c.Writer)
 	if err := encoder.Encode(obj); err != nil {
 		http.Error(c.Writer, err.Error(), http.StatusInternalServerError)
 	}
+	c.Status(code)
 }
 
 func (c *Context) Data(code int, data []byte) {
